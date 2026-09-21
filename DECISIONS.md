@@ -24,3 +24,9 @@
 *   **Context:** Naive arrival timestamp subtraction over Wi-Fi/NTP was mathematically flawed due to the high speed of sound in water (~1480 m/s) and continuous turbulence nature of leaks.
 *   **Decision:** Upgraded multi-node localization to Generalized Cross-Correlation with Phase Transform (GCC-PHAT) across continuous vibration signals.
 *   **Reasoning:** Pressurized micro-leaks emit continuous stationary broadband noise rather than discrete impulses. Cross-correlation in the frequency domain is the established signal processing standard for continuous acoustic emission delay estimation.
+
+## [2026-09-21] D006: Mandatory Pause for User Review After Each Step
+*   **Context:** Managing execution pace and providing the team/user visibility and control over project artifacts.
+*   **Decision:** Mandated that after completing any step, running the verification gate, updating `STATUS.md`, and committing the code, execution must pause to wait for explicit user review and approval before starting the next step.
+*   **Reasoning:** Consecutive batch execution without human checkpointing prevents the team from inspecting intermediate artifacts, testing code on their hardware, or providing course-corrections. Strict one-step-at-a-time execution ensures complete team alignment and feedback integration.
+

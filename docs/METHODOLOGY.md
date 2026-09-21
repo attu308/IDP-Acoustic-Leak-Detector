@@ -19,6 +19,11 @@ The project's workflow is strictly structured around incremental, verifiable pro
 - Every single step maps exactly to a test suite marker (e.g., `@pytest.mark.p0_s1` or a specific `pio test` environment).
 - Because sessions can end abruptly, broken work is committed rather than lost. The state of that broken work is explicitly recorded in `STATUS.md`.
 
+## 5. Mandatory Step-by-Step Review Gate
+- **Never Execute Steps Consecutively Without Review:** The agent/engineer must execute exactly **one step at a time**.
+- Upon completing a step, running its cumulative verification gate (`./scripts/verify.sh <STEP_ID>`), updating `STATUS.md`, and committing the progress to Git, the agent **MUST STOP and wait for explicit user review and approval**.
+- Proceeding automatically to the next step without user consent is strictly prohibited. Every step requires a dedicated checkpoint for review, artifact inspection, and alignment.
+
 ---
 
 # The Definition of Done (DoD) Mechanism
