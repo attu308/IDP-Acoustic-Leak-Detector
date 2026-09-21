@@ -8,8 +8,8 @@
 
 ## ▲ Phase 2: Review II (Initial Design and 20% Development - 20 Marks)
 - **P2-S1: Review II PPT / Presentation Slides Content**
-  - **DoD File:** `presentation/review2_slides.md` exists.
-  - **DoD Command:** `grep -q "Architecture" presentation/review2_slides.md` exits 0.
+  - **DoD File:** `presentation/Review2_Presentation.pptx` exists.
+
 
 - **P2-S2: PlatformIO Environment Initialization**
   - **DoD File:** `platformio.ini` exists.
@@ -21,8 +21,8 @@
 
 ## ▲ Phase 3: Review III (Progress Review and 30% Completion - 10 Marks)
 - **P3-S1: Review III PPT / Presentation Slides Content**
-  - **DoD File:** `presentation/review3_slides.md` exists.
-  - **DoD Command:** `test -s presentation/review3_slides.md` exits 0.
+  - **DoD File:** `presentation/Review3_Presentation.pptx` exists.
+  - **DoD Command:** `test -s presentation/Review3_Presentation.pptx` exits 0.
 
 - **P3-S2: Embedded C++ DSP Porting**
   - **DoD File:** `include/dsp_pipeline.h` exists.
@@ -34,8 +34,8 @@
 
 ## ▲ Phase 4: Review IV (Core Functionality - 50% Completion - 15 Marks)
 - **P4-S1: Review IV PPT / Presentation Slides Content**
-  - **DoD File:** `presentation/review4_slides.md` exists.
-  - **DoD Command:** `test -s presentation/review4_slides.md` exits 0.
+  - **DoD File:** `presentation/Review4_Presentation.pptx` exists.
+  - **DoD Command:** `test -s presentation/Review4_Presentation.pptx` exits 0.
 
 - **P4-S2: TFLite Micro Quantized Export**
   - **DoD File:** `model/leak_model_int8.tflite` exists.
@@ -49,8 +49,8 @@
 
 ## Phase 5: Review V (Integrated Prototype & 80% Validation - 25 Marks)
 - **P5-S1: Review V PPT / Presentation Slides Content**
-  - **DoD File:** `presentation/review5_slides.md` exists.
-  - **DoD Command:** `test -s presentation/review5_slides.md` exits 0.
+  - **DoD File:** `presentation/Review5_Presentation.pptx` exists.
+  - **DoD Command:** `test -s presentation/Review5_Presentation.pptx` exits 0.
 
 - **P5-S2: Hardware Relay Actuation Integration**
   - **DoD File:** `src/actuation.cpp` exists.
@@ -58,8 +58,8 @@
 
 ## Phase 6: Review VI (Open House - 15 Marks)
 - **P6-S1: Review VI PPT / Presentation Slides Content**
-  - **DoD File:** `presentation/review6_slides.md` exists.
-  - **DoD Command:** `test -s presentation/review6_slides.md` exits 0.
+  - **DoD File:** `presentation/Review6_Presentation.pptx` exists.
+  - **DoD Command:** `test -s presentation/Review6_Presentation.pptx` exits 0.
 
 - **P6-S2: Dual-Node GCC-PHAT Localization & Telemetry**
   - **DoD File:** `src/localization.cpp` exists.

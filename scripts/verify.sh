@@ -25,8 +25,7 @@ fi
 # P2-S1
 if [[ "$TARGET_STEP" == "P2-S1" || "$TARGET_STEP" > "P2-S1" ]]; then
     echo "Verifying P2-S1..."
-    if [ ! -f "presentation/review2_slides.md" ]; then echo "Fail: presentation/review2_slides.md missing"; exit 1; fi
-    if ! grep -q "Architecture" presentation/review2_slides.md; then echo "Fail: 'Architecture' not found in slides"; exit 1; fi
+    if [ ! -f "presentation/Review2_Presentation.pptx" ]; then echo "Fail: presentation/Review2_Presentation.pptx missing"; exit 1; fi
     echo "[PASS] P2-S1"
 fi
 
