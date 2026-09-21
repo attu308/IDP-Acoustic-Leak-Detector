@@ -1,8 +1,8 @@
 # STATUS.md - State Tracker
 
 ## Current Focus
-*   **Target Step:** P2-S2
-*   **Goal:** Build the mandatory 8-slide presentation deck (`presentation/Review2_Presentation.pptx`) with embedded architecture visuals, literature survey, and ~20% milestone results.
+*   **Target Step:** P2-S3
+*   **Goal:** Prepare the Panel Q&A Defense Guide and Individual Contribution Matrix (`docs/review2_defense_guide.md`) to secure maximum marks on Rubric 6 (Teamwork/Presentation - 3M) and Rubric 7 (Individual Contribution/Q&A - 2M).
 
 ---
 
@@ -13,7 +13,7 @@
 
 ### ▲ Phase 2: Review II (Initial Design & 20% Prototype - 20 Marks)
 - [x] **P2-S1:** DONE (Architecture & System Design Visual Assets in `presentation/assets/system_architecture.png`)
-- [ ] **P2-S2:** TODO (Review II Mandatory 8-Slide PPTX Deck)
+- [x] **P2-S2:** DONE (Review II Mandatory 8-Slide PPTX Deck in `presentation/Review2_Presentation.pptx`)
 - [ ] **P2-S3:** TODO (Panel Q&A Defense Script & Individual Contribution Guide)
 - [ ] **P2-S4:** TODO (DSP Audio Feature Extraction Prototype - 20% Algorithmic Core)
 - [ ] **P2-S5:** TODO (Embedded Firmware Scaffold & FreeRTOS Dual-Core Architecture)
