@@ -1,8 +1,8 @@
 # STATUS.md - State Tracker
 
 ## Current Focus
-*   **Target Step:** P2-S5
-*   **Goal:** Scaffold the ESP32-S3 PlatformIO project and C++ dual-core FreeRTOS firmware architecture (`firmware/src/main.cpp` and `platformio.ini`) segregating 16 kHz DMA sampling on Core 0 from TinyML inference/actuation on Core 1.
+*   **Target Step:** P2-S6
+*   **Goal:** Compile the Review II Pre-Review Guide Sign-Off and 10-Minute Rehearsal Checklist (`docs/review2_checklist.md`) to guarantee 100% compliance with faculty guidelines and university prerequisites.
 
 ---
 
@@ -16,7 +16,7 @@
 - [x] **P2-S2:** DONE (Review II Mandatory 8-Slide PPTX Deck in `presentation/Review2_Presentation.pptx`)
 - [x] **P2-S3:** DONE (Panel Q&A Defense Script & Individual Contribution Guide in `docs/review2_defense_guide.md`)
 - [x] **P2-S4:** DONE (DSP Audio Feature Extraction Prototype in `dsp/dsp_pipeline.py`)
-- [ ] **P2-S5:** TODO (Embedded Firmware Scaffold & FreeRTOS Dual-Core Architecture)
+- [x] **P2-S5:** DONE (Embedded Firmware Scaffold & FreeRTOS Dual-Core Architecture in `firmware/src/main.cpp`)
 - [ ] **P2-S6:** TODO (Pre-Review Guide Sign-Off & 10-Minute Rehearsal Checklist)
 
 ### ▲ Phase 3: Review III (Progress Review & 30% Completion - 10 Marks)
