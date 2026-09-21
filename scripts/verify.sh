@@ -10,31 +10,52 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-TARGET_STEP=$1
+TARGET_STEP=$(echo "$1" | tr '[:lower:]' '[:upper:]')
 echo "============================================="
 echo "Running Cumulative Verification up to $TARGET_STEP"
 echo "============================================="
 
-# P1-S1
-if [[ "$TARGET_STEP" == "P1-S1" || "$TARGET_STEP" > "P1-S1" ]]; then
-    echo "Verifying P1-S1..."
-    if [ ! -f "idea.md" ]; then echo "Fail: idea.md missing"; exit 1; fi
-    echo "[PASS] P1-S1"
-fi
+# Define ordered sequence of steps
+STEPS=(
+    "P1-S1"
+    "P2-S1"
+    "P2-S2"
+    "P2-S3"
+    "P2-S4"
+    "P2-S5"
+    "P2-S6"
+    "P3-S1"
+    "P3-S2"
+    "P3-S3"
+    "P3-S4"
+    "P4-S1"
+    "P4-S2"
+    "P4-S3"
+    "P4-S4"
+    "P5-S1"
+    "P5-S2"
+    "P5-S3"
+    "P5-S4"
+    "P6-S1"
+    "P6-S2"
+    "P6-S3"
+    "P7-S1"
+    "P7-S2"
+)
 
-# P2-S1
-if [[ "$TARGET_STEP" == "P2-S1" || "$TARGET_STEP" > "P2-S1" ]]; then
-    echo "Verifying P2-S1..."
-    if [ ! -f "presentation/Review2_Presentation.pptx" ]; then echo "Fail: presentation/Review2_Presentation.pptx missing"; exit 1; fi
-    echo "[PASS] P2-S1"
-fi
+FOUND=0
+for STEP in "${STEPS[@]}"; do
+    echo "Verifying $STEP..."
+    python3 scripts/verify_step.py "$STEP"
+    if [ "$STEP" == "$TARGET_STEP" ]; then
+        FOUND=1
+        break
+    fi
+done
 
-# P2-S2
-if [[ "$TARGET_STEP" == "P2-S2" || "$TARGET_STEP" > "P2-S2" ]]; then
-    echo "Verifying P2-S2..."
-    if [ ! -f "platformio.ini" ]; then echo "Fail: platformio.ini missing"; exit 1; fi
-    if ! grep -q "esp32-s3-devkitc-1" platformio.ini; then echo "Fail: Board missing in platformio.ini"; exit 1; fi
-    echo "[PASS] P2-S2"
+if [ "$FOUND" -eq 0 ]; then
+    echo "Warning: Target step $TARGET_STEP not found in standard step list."
+    python3 scripts/verify_step.py "$TARGET_STEP"
 fi
 
 echo "============================================="

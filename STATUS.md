@@ -2,35 +2,55 @@
 
 ## Current Focus
 *   **Target Step:** P2-S1
-*   **Goal:** Generate presentation PPT/Slides content for Review II.
+*   **Goal:** Generate high-resolution system architecture & FreeRTOS task diagram visual assets (`presentation/assets/system_architecture.png`) for Review II Slide 7 and defense documentation.
 
-## Phase Status
+---
 
-### Phase 1: Review I (Past)
-- [x] **P1-S1:** DONE
+## Phase Status Board
 
-### Phase 2: Review II (Current - 20%)
-- [ ] **P2-S1:** TODO (Review II PPT/Slides)
-- [ ] **P2-S2:** TODO
-- [ ] **P2-S3:** TODO
+### Phase 1: Review I (Problem Identification & Planning - 5 Marks)
+- [x] **P1-S1:** DONE (Project Definition, Literature Baseline & Scope in `idea.md`)
 
-### Phase 3: Review III (30%)
-- [ ] **P3-S1:** TODO (Review III PPT/Slides)
-- [ ] **P3-S2:** TODO
-- [ ] **P3-S3:** TODO
+### ▲ Phase 2: Review II (Initial Design & 20% Prototype - 20 Marks)
+- [ ] **P2-S1:** TODO (Architecture & System Design Visual Assets)
+- [ ] **P2-S2:** TODO (Review II Mandatory 8-Slide PPTX Deck)
+- [ ] **P2-S3:** TODO (Panel Q&A Defense Script & Individual Contribution Guide)
+- [ ] **P2-S4:** TODO (DSP Audio Feature Extraction Prototype - 20% Algorithmic Core)
+- [ ] **P2-S5:** TODO (Embedded Firmware Scaffold & FreeRTOS Dual-Core Architecture)
+- [ ] **P2-S6:** TODO (Pre-Review Guide Sign-Off & 10-Minute Rehearsal Checklist)
 
-### Phase 4: Review IV (50%)
-- [ ] **P4-S1:** TODO (Review IV PPT/Slides)
-- [ ] **P4-S2:** TODO
-- [ ] **P4-S3:** TODO
+### ▲ Phase 3: Review III (Progress Review & 30% Completion - 10 Marks)
+- [ ] **P3-S1:** TODO (Review III PPT Presentation Deck)
+- [ ] **P3-S2:** TODO (C++ Embedded DSP Fixed-Point FFT Engine)
+- [ ] **P3-S3:** TODO (Acoustic Leak Dataset Preprocessing & Augmentation Pipeline)
+- [ ] **P3-S4:** TODO (1D-CNN Baseline Classifier Training Pipeline)
 
-### Phase 5: Review V (80%)
-- [ ] **P5-S1:** TODO (Review V PPT/Slides)
-- [ ] **P5-S2:** TODO
+### ▲ Phase 4: Review IV (Core Functionality - 50% Completion - 15 Marks)
+- [ ] **P4-S1:** TODO (Review IV PPT Presentation Deck)
+- [ ] **P4-S2:** TODO (Post-Training Int8 Quantization & SRAM Memory Profiling)
+- [ ] **P4-S3:** TODO (TFLite Micro Embedded Inference Engine on ESP32 Core 1)
+- [ ] **P4-S4:** TODO (Sub-200ms Latency & Accuracy Verification Benchmarking Suite)
 
-### Phase 6: Review VI (100%)
-- [ ] **P6-S1:** TODO (Review VI PPT/Slides)
-- [ ] **P6-S2:** TODO
+### ▲ Phase 5: Review V (Integrated Prototype & 80% Validation - 25 Marks)
+- [ ] **P5-S1:** TODO (Review V PPT Presentation Deck)
+- [ ] **P5-S2:** TODO (Emergency Solenoid Valve Actuation State Machine)
+- [ ] **P5-S3:** TODO (MQTT Telemetry & Wi-Fi Anomaly Dispatch Module)
+- [ ] **P5-S4:** TODO (Integrated Hydraulic Rig Test Validation Protocol & Results)
 
-### Phase 7: Final Report
-- [ ] **P7-S1:** TODO
+### — SUBMITTABLE BASELINE (75 Marks) —
+
+### Phase 6: Review VI (Open House Evaluation - 15 Marks)
+- [ ] **P6-S1:** TODO (Open House Presentation Deck & Demonstration Posters)
+- [ ] **P6-S2:** TODO (Dual-Node GCC-PHAT Continuous Acoustic Cross-Correlation Module)
+- [ ] **P6-S3:** TODO (Comparative Evaluation & Industrial Cost-Benefit Analysis)
+
+### Phase 7: Final Report Submission (10 Marks)
+- [ ] **P7-S1:** TODO (Comprehensive Project Report Compilation)
+- [ ] **P7-S2:** TODO (Open-Source Codebase Release & Reproducibility Package)
+
+---
+
+## Handoff Notes
+*   **Gate Verification:** `P1-S1` verified successfully with `./scripts/verify.sh P1-S1` (Exit 0).
+*   **Next Action:** Execute `P2-S1` to generate system architecture diagram asset (`presentation/assets/system_architecture.png`).
+*   **Tooling Setup:** Using `/Users/atharvdeshpande/.local/bin/uv` for python dependencies (e.g. `python-pptx`, `matplotlib`, `pytest`).
