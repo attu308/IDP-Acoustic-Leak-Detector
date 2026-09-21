@@ -1,8 +1,8 @@
 # STATUS.md - State Tracker
 
 ## Current Focus
-*   **Target Step:** P2-S4
-*   **Goal:** Build the DSP Audio Feature Extraction Prototype (`dsp/dsp_pipeline.py`) to serve as the demonstrable ~20% core algorithm, converting simulated/recorded 16 kHz raw waveforms into Log-Mel Spectrograms with passing unit tests.
+*   **Target Step:** P2-S5
+*   **Goal:** Scaffold the ESP32-S3 PlatformIO project and C++ dual-core FreeRTOS firmware architecture (`firmware/src/main.cpp` and `platformio.ini`) segregating 16 kHz DMA sampling on Core 0 from TinyML inference/actuation on Core 1.
 
 ---
 
@@ -15,7 +15,7 @@
 - [x] **P2-S1:** DONE (Architecture & System Design Visual Assets in `presentation/assets/system_architecture.png`)
 - [x] **P2-S2:** DONE (Review II Mandatory 8-Slide PPTX Deck in `presentation/Review2_Presentation.pptx`)
 - [x] **P2-S3:** DONE (Panel Q&A Defense Script & Individual Contribution Guide in `docs/review2_defense_guide.md`)
-- [ ] **P2-S4:** TODO (DSP Audio Feature Extraction Prototype - 20% Algorithmic Core)
+- [x] **P2-S4:** DONE (DSP Audio Feature Extraction Prototype in `dsp/dsp_pipeline.py`)
 - [ ] **P2-S5:** TODO (Embedded Firmware Scaffold & FreeRTOS Dual-Core Architecture)
 - [ ] **P2-S6:** TODO (Pre-Review Guide Sign-Off & 10-Minute Rehearsal Checklist)
 
