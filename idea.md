@@ -13,9 +13,21 @@ This project details the design and deployment of an Edge AI (TinyML) smart sens
 ## 1. Literature Survey, Research Gap & Requirements Analysis
 
 ### 1.1 Literature Survey & Baseline Systems
-1. **Acoustic Emission & Manual Logging (e.g., Hunaidi et al.):** Traditional research establishes that pressurized leaks create acoustic emissions peaking between 1 kHz and 5 kHz in plastic pipes. However, existing commercial systems (like Gutermann or Sewerin loggers) cost upwards of ₹1,00,000, rely on bulky offline correlators, and require manual data retrieval.
-2. **SCADA Hydraulic Mass-Balance:** District Metering Areas (DMAs) use flow sensors to detect volume drops. *Limitation:* These systems only detect catastrophic ruptures (>10% volume loss) and are entirely blind to early-stage micro-cracks.
-3. **Cloud-IoT Acoustic Streaming:** Emerging IoT sensors stream raw audio to AWS/Azure for inference. *Limitation:* Streaming 16 kHz audio consumes ~1.2 GB of bandwidth per day per node, drains batteries rapidly, and fails during network outages.
+1. **Acoustic Wave Propagation in Plastic Pipes (Hunaidi & Chu, 1999):**
+   * *Citation:* O. Hunaidi & W. T. Chu, *"Acoustical characteristics of leak signals in plastic water distribution pipes"*, Applied Acoustics, Vol. 58, No. 3, pp. 235–254. DOI: [10.1016/S0003-682X(99)00013-4](https://doi.org/10.1016/S0003-682X(99)00013-4).
+   * *Key Finding:* Proved that acoustic leak signals in PVC pipes concentrate within the 1 kHz to 5 kHz band, while frequencies above 2 kHz suffer rapid structural attenuation over distance.
+   * *Limitation:* Focused on offline manual cross-correlation using bulky PC-based laboratory instruments; lacks real-time embedded edge intelligence.
+2. **SCADA District Metered Area (DMA) Flow-Balance (Eliades & Polycarpou, 2012):**
+   * *Citation:* D. G. Eliades & M. M. Polycarpou, *"Leakage Fault Detection in a District Metered Area of a Water Distribution System"*, Water Resources Management, Vol. 29, No. 10, pp. 3843–3860. DOI: [10.1007/s11269-015-1066-z](https://doi.org/10.1007/s11269-015-1066-z).
+   * *Key Finding:* Demonstrates boundary inflow/outflow balance monitoring using statistical cumulative sum (CUSUM) algorithms across municipal network sectors.
+   * *Limitation:* Macroscopic scope: reliably detects only catastrophic burst anomalies (>10–15% volumetric drops) and is blind to localized weeping micro-cracks (<1 L/min).
+3. **Time–Frequency Deep Learning for Acoustic Leak Detection (Kang et al., 2021 & IEEE Sensors 2026):**
+   * *Citation:* J. Kang et al., *"Leakage detection in water distribution systems based on time–frequency convolutional neural network"*, Measurement, Vol. 186, 110094. DOI: [10.1016/j.measurement.2021.110094](https://doi.org/10.1016/j.measurement.2021.110094); and *"ATT-LCNN: Lightweight CNN for Pipeline Leak Detection"*, IEEE Sensors Journal, DOI: [10.1109/JSEN.2026.3609802](https://doi.org/10.1109/JSEN.2026.3609802).
+   * *Key Finding:* Converts structural vibration signals into 2D time-frequency spectrograms, leveraging CNN spatial feature extraction for high classification accuracy (>92%).
+   * *Limitation:* Designed for high-power GPU workstations streaming continuous audio to cloud servers; no sub-watt TinyML microcontroller deployment (e.g. ESP32-S3), int8 quantization, or direct valve actuation.
+4. **Institutional Non-Revenue Water (NRW) Baselines:**
+   * *World Bank Sector Report No. 8 (Kingdom et al.):* Establishes that >32 billion m³ of treated drinking water leaks from municipal networks worldwide annually (>US$14 billion annual loss). [Report Link](https://documents.worldbank.org/en/publication/documents-reports/documentdetail/659421468162125557).
+   * *NITI Aayog Composite Water Management Index (CWMI):* Documents that approximately 40% of piped water in Indian urban supply systems is lost to distribution leaks. [Report Link](https://www.niti.gov.in/report-and-publication).
 
 ### 1.2 The Research Gap
 There is a distinct lack of an **ultra-low-cost (<₹2,500), non-invasive, autonomous Edge AI classifier** that can detect micro-leaks, isolate faults via mechanical actuation, and operate independently of continuous cloud connectivity. 

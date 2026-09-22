@@ -189,113 +189,179 @@ def create_deck(output_path: str, architecture_image: str):
     add_header(slide3, "Introduction: The Non-Revenue Water (NRW) Crisis")
 
     intro_cards = [
-        ("The Global & Municipal Challenge",
-         [("30% – 50% Water Loss:", "Municipal distribution systems lose massive fluid volumes to Non-Revenue Water (NRW) before reaching consumers."),
-          ("Invisible Micro-Cracks:", "Pressurized pipeline leaks start as sub-millimeter fissures that remain structurally undetected for months."),
-          ("Severe Cascading Damage:", "Unchecked micro-leaks cause soil erosion, catastrophic road cave-ins, and severe building foundation damage.")]),
+        ("The Global Problem (World Bank)",
+         [("32 Billion m³/yr Physical Loss:", "Over 32 billion cubic meters of treated water leak annually from distribution networks worldwide (Kingdom et al., World Bank)."),
+          ("$14 Billion Annual Cost:", "Unmetered leaks cost water utilities worldwide >$14B/year in energy, treatment chemicals, and revenue drain."),
+          ("Severe Cascading Damage:", "Pressurized fissures erode soil sub-bases, leading to ground subsidence, sinkholes, and structural foundation collapse.")]),
 
-        ("Failure of Conventional Approaches",
-         [("Manual Acoustic Patrols:", "Technicians use acoustic listening rods periodically; inspection is labor-intensive, human-dependent, and non-continuous."),
-          ("Cloud-IoT Bandwidth Congestion:", "Streaming raw audio/vibration to cloud platforms consumes ~1.2 GB/day per node, incurring high data costs."),
-          ("Zero Autonomous Shutoff:", "Existing loggers only record data; they cannot physically isolate the leak during network outages.")]),
+        ("Urban India Crisis (NITI Aayog)",
+         [("~40% Urban Distribution Loss:", "NITI Aayog Composite Water Management Index (CWMI) reports that ~40% of piped urban water in India is lost due to leakages."),
+          ("Intermittent Supply Vulnerability:", "Sub-millimeter micro-cracks allow contaminated groundwater suction during non-pressurized supply cycles."),
+          ("Ineffective Manual Patrols:", "Listening sticks are periodic, human-dependent, and fail to provide preventative 24/7 coverage.")]),
 
-        ("The Edge AI (TinyML) Breakthrough",
-         [("In-Situ Processing:", "Shifting intelligence directly onto sub-watt dual-core microcontrollers eliminates raw audio streaming completely."),
-          ("Sub-200ms Latency:", "On-device quantized neural inference detects leak acoustic signatures in milliseconds."),
-          ("Autonomous Isolation:", "Direct GPIO-triggered solenoid shutoff valve prevents catastrophic flooding even if Wi-Fi fails entirely.")])
+        ("The Edge AI (TinyML) Solution",
+         [("In-Situ Processing:", "Shifting intelligence onto sub-watt dual-core ESP32 microcontrollers eliminates streaming 1.2 GB/day raw audio to the cloud."),
+          ("Sub-200ms Decision Latency:", "Local 8-bit quantized CNN classifies micro-leak acoustic turbulence within milliseconds."),
+          ("Offline Fail-Safe Actuation:", "Direct GPIO-triggered solenoid shutoff valve isolates faults even during total Wi-Fi/cellular network outages.")])
     ]
 
     for i, (ctitle, points) in enumerate(intro_cards):
         x = Inches(0.8 + i * 3.95)
-        card = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, x, Inches(1.6), Inches(3.75), Inches(5.2))
+        card = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, x, Inches(1.5), Inches(3.75), Inches(4.5))
         card.fill.solid()
         card.fill.fore_color.rgb = CARD_BG
         card.line.color.rgb = BORDER_COL
 
-        tb = slide3.shapes.add_textbox(x + Inches(0.25), Inches(1.85), Inches(3.25), Inches(4.7))
+        tb = slide3.shapes.add_textbox(x + Inches(0.2), Inches(1.65), Inches(3.35), Inches(4.2))
         tf = tb.text_frame
         tf.word_wrap = True
         tf.margin_top = tf.margin_left = tf.margin_right = tf.margin_bottom = 0
 
         p = tf.paragraphs[0]
         p.text = ctitle
-        p.font.size = Pt(13)
+        p.font.size = Pt(12)
         p.font.bold = True
         p.font.color.rgb = ACCENT_BLUE if i == 2 else PRIMARY
 
         for header, body in points:
             p_b = tf.add_paragraph()
             p_b.text = f"• {header} "
-            p_b.font.size = Pt(10)
+            p_b.font.size = Pt(9.5)
             p_b.font.bold = True
             p_b.font.color.rgb = PRIMARY
-            p_b.space_before = Pt(8)
+            p_b.space_before = Pt(6)
 
             run = p_b.add_run()
             run.text = body
             run.font.bold = False
             run.font.color.rgb = MUTED
 
+    # Slide 3: Bottom Authority Data Sources Citation Bar with Clickable Hyperlinks
+    cite_card = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(6.15), Inches(11.7), Inches(0.9))
+    cite_card.fill.solid()
+    cite_card.fill.fore_color.rgb = RGBColor(241, 245, 249) # Slate 100
+    cite_card.line.color.rgb = BORDER_COL
+
+    tb_cite = slide3.shapes.add_textbox(Inches(1.0), Inches(6.22), Inches(11.3), Inches(0.75))
+    tf_c = tb_cite.text_frame
+    tf_c.word_wrap = True
+    tf_c.margin_top = tf_c.margin_left = tf_c.margin_right = tf_c.margin_bottom = 0
+
+    p_c = tf_c.paragraphs[0]
+    p_c.text = "Authoritative Data Sources & Reference Links:"
+    p_c.font.size = Pt(10)
+    p_c.font.bold = True
+    p_c.font.color.rgb = PRIMARY
+
+    p_links = tf_c.add_paragraph()
+    p_links.space_before = Pt(2)
+
+    # Link 1: World Bank
+    r_wb1 = p_links.add_run()
+    r_wb1.text = "1. World Bank Water Sector Report No. 8 (Kingdom et al.): "
+    r_wb1.font.size = Pt(8.5)
+    r_wb1.font.color.rgb = MUTED
+
+    r_wb2 = p_links.add_run()
+    r_wb2.text = "documents.worldbank.org/en/publication/documents-reports/documentdetail/659421468162125557"
+    r_wb2.font.size = Pt(8.5)
+    r_wb2.font.color.rgb = ACCENT_BLUE
+    r_wb2.font.underline = True
+    r_wb2.hyperlink.address = "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/659421468162125557/the-challenge-of-reducing-non-revenue-water-nrw-in-developing-countries-a-look-at-performance-based-service-contracting"
+
+    p_links2 = tf_c.add_paragraph()
+    p_links2.space_before = Pt(1)
+
+    # Link 2: NITI Aayog
+    r_na1 = p_links2.add_run()
+    r_na1.text = "2. NITI Aayog Composite Water Management Index (CWMI): "
+    r_na1.font.size = Pt(8.5)
+    r_na1.font.color.rgb = MUTED
+
+    r_na2 = p_links2.add_run()
+    r_na2.text = "niti.gov.in/report-and-publication"
+    r_na2.font.size = Pt(8.5)
+    r_na2.font.color.rgb = ACCENT_BLUE
+    r_na2.font.underline = True
+    r_na2.hyperlink.address = "https://www.niti.gov.in/report-and-publication"
+
     # ==========================================
     # SLIDE 4: Literature Survey
     # ==========================================
     slide4 = prs.slides.add_slide(blank_layout)
     set_slide_background(slide4)
-    add_header(slide4, "Literature Survey: Comparative Analysis of Existing Baselines")
+    add_header(slide4, "Literature Survey: Comparative Analysis of Baseline Research")
 
     lit_rows = [
-        ("Acoustic Wave Propagation in Plastic Pipes", "Hunaidi et al. (National Research Council Canada)",
-         "Analyzed acoustic vibration attenuation in PVC and MDPE water distribution pipes.",
-         "Demonstrated that high frequencies (>2 kHz) attenuate rapidly in plastic. Highlighted that leak energy concentrates in 1–5 kHz bands.",
-         "Focused on offline acoustic correlation with bulky lab equipment; no real-time embedded edge classification."),
+        ("Acoustical Characteristics of Leak Signals in Plastic Water Pipes",
+         "O. Hunaidi & W. T. Chu (National Research Council Canada), Applied Acoustics, 58(3), 235-254",
+         "https://doi.org/10.1016/S0003-682X(99)00013-4",
+         "Acoustic frequency propagation and attenuation analysis in PVC and MDPE distribution pipes.",
+         "Demonstrated that higher frequencies (>2 kHz) attenuate rapidly in plastic pipes; proven that leak turbulence energy concentrates in 1–5 kHz band.",
+         "Focused on offline cross-correlation using bulky laboratory hydrophones and PC DAQ; no real-time embedded edge classifier or automated actuation."),
 
-        ("District Metering Area (DMA) Mass-Balance", "SCADA Hydraulic Flow-Balance Systems",
-         "Utilizes electromagnetic flow meters at district inlet/outlet boundaries to monitor net water volume discrepancies.",
-         "Reliable for macro-ruptures and municipal-level volumetric accounting.",
-         "Completely blind to micro-cracks (<10% volume loss); cannot localize faults or provide fast mechanical shutoff."),
+        ("Leakage Fault Detection in a District Metered Area (DMA)",
+         "D. G. Eliades & M. M. Polycarpou, Water Resources Management / IEEE, 29(10), 3843-3860",
+         "https://doi.org/10.1007/s11269-015-1066-z",
+         "SCADA boundary flow balancing and cumulative sum (CUSUM) statistical inflow anomaly detection.",
+         "Effective for macro-level volumetric monitoring and catastrophic municipal trunk-line bursts.",
+         "Macroscopic approach: completely blind to localized weeping micro-cracks (<10% flow drop); incapable of pinpointing leak distance or local valve control."),
 
-        ("Cloud-Connected Acoustic IoT Streamers", "Commercial Acoustic Loggers (Gutermann, Sewerin)",
-         "Deployed vibration sensors that upload recorded audio clips or telemetry via GSM/LoRaWAN to cloud servers.",
-         "Enables map-based leak dashboards across city zones.",
-         "Excessive unit cost (₹1,00,000+); high SIM/cellular bandwidth overhead; high latency (hours); no automated emergency actuation.")
+        ("Time–Frequency CNNs for Pipeline Acoustic Leak Detection",
+         "J. Kang et al. (Measurement, 186, 110094) & IEEE Sensors Journal (10.1109/JSEN.2026.3609802)",
+         "https://doi.org/10.1016/j.measurement.2021.110094",
+         "Converts vibration waveforms into 2D time-frequency spectrograms and trains CNN classifiers.",
+         "Achieves >92% classification accuracy by extracting 2D harmonic and broadband turbulence features.",
+         "Tested on high-power GPU workstations with cloud streaming; no sub-watt TinyML microcontroller deployment, int8 quantization, or edge shutoff integration.")
     ]
 
-    for i, (title, author, methodology, finding, limitation) in enumerate(lit_rows):
-        y = Inches(1.6 + i * 1.75)
-        card = slide4.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), y, Inches(11.7), Inches(1.6))
+    for i, (title, citation, link, methodology, finding, limitation) in enumerate(lit_rows):
+        y = Inches(1.5 + i * 1.85)
+        card = slide4.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), y, Inches(11.7), Inches(1.72))
         card.fill.solid()
         card.fill.fore_color.rgb = CARD_BG
         card.line.color.rgb = BORDER_COL
 
-        tb = slide4.shapes.add_textbox(Inches(1.0), y + Inches(0.12), Inches(11.3), Inches(1.35))
+        tb = slide4.shapes.add_textbox(Inches(1.0), y + Inches(0.1), Inches(11.3), Inches(1.5))
         tf = tb.text_frame
         tf.word_wrap = True
         tf.margin_top = tf.margin_left = tf.margin_right = tf.margin_bottom = 0
 
+        # Title + Citation
         p = tf.paragraphs[0]
-        p.text = f"{title}  |  "
-        p.font.size = Pt(12)
+        p.text = f"{title}\n"
+        p.font.size = Pt(11)
         p.font.bold = True
         p.font.color.rgb = PRIMARY
 
-        r = p.add_run()
-        r.text = author
-        r.font.size = Pt(11)
-        r.font.bold = False
-        r.font.color.rgb = ACCENT_BLUE
+        r_c = p.add_run()
+        r_c.text = f"Source: {citation}  |  "
+        r_c.font.size = Pt(9.5)
+        r_c.font.bold = False
+        r_c.font.color.rgb = MUTED
 
+        r_l = p.add_run()
+        r_l.text = f"DOI: {link}"
+        r_l.font.size = Pt(9.5)
+        r_l.font.bold = True
+        r_l.font.color.rgb = ACCENT_BLUE
+        r_l.font.underline = True
+        r_l.hyperlink.address = link
+
+        # Approach & Finding
         p_m = tf.add_paragraph()
-        p_m.text = f"• Approach: {methodology} Key Finding: {finding}"
-        p_m.font.size = Pt(9.5)
-        p_m.font.color.rgb = MUTED
+        p_m.text = f"• Approach & Finding: {methodology} {finding}"
+        p_m.font.size = Pt(9)
+        p_m.font.color.rgb = RGBColor(51, 65, 85) # Slate 700
         p_m.space_before = Pt(3)
 
+        # Limitation / Research Gap
         p_l = tf.add_paragraph()
         p_l.text = f"• Research Limitation: {limitation}"
-        p_l.font.size = Pt(9.5)
+        p_l.font.size = Pt(9)
         p_l.font.bold = True
-        p_l.font.color.rgb = RGBColor(185, 28, 28)
-        p_l.space_before = Pt(3)
+        p_l.font.color.rgb = RGBColor(185, 28, 28) # Red 700
+        p_l.space_before = Pt(2)
 
     # ==========================================
     # SLIDE 5: Challenges & Research Gap
