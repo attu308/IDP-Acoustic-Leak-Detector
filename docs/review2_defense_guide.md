@@ -100,14 +100,14 @@
 > **Model Answer (Atharv Deshpande, Ojas Sugur, Vishwajeet Shelar):**  
 > *"To satisfy the 20% milestone under Review II guidelines:  
 > 1. **Signal Processing Core:** We have a working 16 kHz audio sampling and DSP pipeline that converts raw acoustic time-domain data into Log-Mel Spectrograms.  
-> 2. **Empirical Differentiation:** We have validated that artificial micro-cracks produce distinct, quantifiable spectral energy shifts in the 1.5–4.2 kHz frequency band compared to laminar flow.  
+> 2. **Algorithmic Simulation Validation:** We have validated our DSP pipeline using synthetic acoustic signals modeled on published hydroacoustic literature (Hunaidi & Chu, 1999), confirming a +33.2 dB spectral energy surge in the 1.5–5 kHz turbulence band over laminar baseline flow before physical sensor deployment.  
 > 3. **Embedded Software Architecture:** We have structured the FreeRTOS dual-core firmware scaffold on the ESP32-S3, isolating high-speed DMA ingestion on Core 0 and control/actuation on Core 1."*
 
 ---
 
 ### Q10: "How will you safely test this in the laboratory without flooding the lab or damaging college infrastructure?"
 > **Model Answer (Atharv Deshpande / Ojas Sugur):**  
-> *"We constructed a closed-loop benchtop hydraulic test rig using 1-inch Schedule 40 PVC piping connected to a small 12V DC recirculating water pump and a reservoir tank. Controlled micro-leaks are introduced using a high-precision needle valve, allowing us to simulate leak apertures from 0.5 mm to 3 mm at safe operational pressures (2 to 3 bar) with 100% water recovery back into the reservoir."*
+> *"We have designed a closed-loop benchtop hydraulic test rig (scheduled for physical fabrication in Review III–IV) using 1-inch Schedule 40 PVC piping connected to a small 12V DC recirculating water pump and a reservoir tank. Controlled micro-leaks will be introduced using a high-precision needle valve, allowing us to simulate leak apertures from 0.5 mm to 3 mm at safe operational pressures (2 to 3 bar) with 100% water recovery back into the reservoir."*
 
 ---
 

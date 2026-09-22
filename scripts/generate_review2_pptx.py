@@ -518,7 +518,7 @@ def create_deck(output_path: str, architecture_image: str):
     res_points = [
         ("16 kHz Audio DMA Sampling Pipeline:", "Implemented circular double buffering and Hanning windowing to ingest continuous structural acoustic vibrations on ESP32 Core 0."),
         ("Real-Time Log-Mel Spectrogram Engine:", "Engineered 32-band filterbank conversion scaled to 0.5–8 kHz fluid turbulence frequencies, generating 2D feature maps."),
-        ("Empirical Spectral Energy Elevation:", "Experimental frequency sweeps confirm >30 dB spectral density surge in 1.5–4.5 kHz band during needle-valve micro-cracks vs. laminar flow."),
+        ("Simulation-Based Spectral Validation:", "Synthetic acoustic signal simulations modeled on Hunaidi & Chu (1999) literature confirm >30 dB spectral density surge in 1.5–5.0 kHz turbulence band over laminar flow."),
         ("Dual-Core FreeRTOS Task Architecture:", "Decoupled sampling/DSP (Core 0) from TinyML inference and actuation state machines (Core 1)."),
         ("Sub-Second Solenoid Shutoff Logic:", "Validated fail-safe GPIO relay trigger executing in <50ms upon simulated anomaly condition.")
     ]
@@ -534,7 +534,7 @@ def create_deck(output_path: str, architecture_image: str):
         r.font.bold = False
         r.font.color.rgb = MUTED
 
-    # Right Column: Empirical Spectral Comparison Plot
+    # Right Column: Simulated Spectral Comparison Plot
     spec_img = "presentation/assets/spectral_comparison.png"
     if os.path.isfile(spec_img):
         card_r8 = slide8.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.5), Inches(1.5), Inches(6.0), Inches(5.4))
@@ -546,7 +546,7 @@ def create_deck(output_path: str, architecture_image: str):
         tf_st = tb_spec_title.text_frame
         tf_st.word_wrap = True
         p = tf_st.paragraphs[0]
-        p.text = "Empirical Proof: Laminar Flow vs. Micro-Leak Turbulence"
+        p.text = "DSP Simulation Validation: Laminar Flow vs. Micro-Leak Turbulence"
         p.font.size = Pt(11.5)
         p.font.bold = True
         p.font.color.rgb = PRIMARY
@@ -557,7 +557,7 @@ def create_deck(output_path: str, architecture_image: str):
         tf_sc = tb_spec_cap.text_frame
         tf_sc.word_wrap = True
         p = tf_sc.paragraphs[0]
-        p.text = "Spectrogram Feature Verification: Notice the prominent energy surge (yellow/orange bands) across 1.5–5 kHz in the right plot, reflecting continuous hydrodynamic turbulence used as the input tensor for our TinyML model."
+        p.text = "Spectrogram Feature Verification: Synthetic hydrodynamic acoustic signals modeled on published experimental literature (Hunaidi & Chu, 1999) validate that our 16 kHz Log-Mel DSP engine reliably isolates turbulence energy (1.5–5 kHz) prior to physical hardware testbed integration."
         p.font.size = Pt(8.5)
         p.font.italic = True
         p.font.color.rgb = MUTED

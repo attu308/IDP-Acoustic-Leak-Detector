@@ -31,7 +31,7 @@
   - **Slide 5:** Identified technical challenges & clear research gap.
   - **Slide 6:** Concrete, measurable project objectives across hardware, DSP, TinyML, and actuation.
   - **Slide 7:** Proposed methodology, high-res system architecture diagram, FreeRTOS Core 0/1 segregation, component trade-off matrix.
-  - **Slide 8:** Results / Initial implementation (~20% completion milestone) with empirical spectral comparison.
+  - **Slide 8:** Results / Initial implementation (~20% completion milestone) with simulation-based spectral comparison.
 - [x] **Design Integrity:**
   - Zero auto-generated/generic AI slide templates; custom professional engineering formatting.
   - High-resolution visual diagrams (`presentation/assets/system_architecture.png` and `spectral_comparison.png`) embedded.
@@ -44,8 +44,8 @@
   - 16 kHz sampling and 1st-order analog high-pass emulation (>500 Hz).
   - 512-point FFT framing with Hanning windowing and 32-band Log-Mel filterbank conversion.
   - Validated via self-test (`python3 dsp/dsp_pipeline.py --test` exits 0).
-- [x] **Empirical Turbulence Differentiation:**
-  - Demonstrated quantifiable spectral energy surge (>30 dB) in 1.5–4.5 kHz band during micro-cracks vs. laminar baseline.
+- [x] **Simulation-Based Turbulence Differentiation:**
+  - Validated DSP pipeline using synthetic acoustic signals modeled on published literature (>30 dB surge in 1.5–5 kHz band vs. laminar baseline).
 - [x] **Embedded Firmware Architecture:**
   - ESP32-S3 PlatformIO project configured with FreeRTOS dual-core task segregation (`firmware/src/main.cpp`).
   - Thread-safe FreeRTOS queue (`xQueueFeatureMap`) passing feature frames from Core 0 to Core 1.
