@@ -105,28 +105,35 @@ def create_deck(output_path: str, architecture_image: str):
     div.line.fill.background()
 
     # Meta text box
-    tb_meta = slide1.shapes.add_textbox(Inches(1.5), Inches(4.5), Inches(10.3), Inches(1.8))
+    tb_meta = slide1.shapes.add_textbox(Inches(1.5), Inches(4.45), Inches(10.3), Inches(1.9))
     tf_m = tb_meta.text_frame
     tf_m.word_wrap = True
 
     p = tf_m.paragraphs[0]
-    p.text = "Student Team: B.Tech Computer Science & Engineering"
-    p.font.size = Pt(12)
+    p.text = "Student Team (SCOPE — School of Computer Science & Engineering):"
+    p.font.size = Pt(11.5)
     p.font.bold = True
     p.font.color.rgb = PRIMARY
 
     p = tf_m.add_paragraph()
-    p.text = "Team Members: Atharv Deshpande & Project Partners | Specialization: AI / Core CSE"
+    p.text = "• Atharv Deshpande (25BAI1337)   |   • Ojas Sugur (25BAI1222)   |   • Vishwajeet Shelar (25BAI1581)"
     p.font.size = Pt(11)
-    p.font.color.rgb = MUTED
+    p.font.bold = True
+    p.font.color.rgb = ACCENT_BLUE
     p.space_before = Pt(3)
 
     p = tf_m.add_paragraph()
-    p.text = "Project Guide: Assigned Faculty Mentor, Department of Computer Science & Engineering"
+    p.text = "Program: B.Tech Computer Science & Engineering (Specialization in AI & ML)"
+    p.font.size = Pt(10)
+    p.font.color.rgb = MUTED
+    p.space_before = Pt(2)
+
+    p = tf_m.add_paragraph()
+    p.text = "Project Guide: Prof. Sujithra Kanmani, School of Computer Science & Engineering (SCOPE)"
     p.font.size = Pt(11)
     p.font.bold = True
     p.font.color.rgb = PRIMARY
-    p.space_before = Pt(6)
+    p.space_before = Pt(5)
 
     # ==========================================
     # SLIDE 2: Agenda
