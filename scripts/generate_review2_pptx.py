@@ -487,44 +487,9 @@ def create_deck(output_path: str, architecture_image: str):
     set_slide_background(slide7)
     add_header(slide7, "Proposed Methodology & System Architecture")
 
-    # Embed the high-resolution architecture diagram generated in P2-S1
+    # Embed the high-resolution architecture diagram generated in P2-S1 across full slide width
     if os.path.isfile(architecture_image):
-        slide7.shapes.add_picture(architecture_image, Inches(0.8), Inches(1.5), width=Inches(8.2))
-
-    # Right side: Architecture Highlights & Trade-offs
-    card_arch = slide7.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(9.2), Inches(1.5), Inches(3.3), Inches(5.3))
-    card_arch.fill.solid()
-    card_arch.fill.fore_color.rgb = CARD_BG
-    card_arch.line.color.rgb = BORDER_COL
-
-    tb_a = slide7.shapes.add_textbox(Inches(9.4), Inches(1.7), Inches(2.9), Inches(4.9))
-    tf_a = tb_a.text_frame
-    tf_a.word_wrap = True
-    tf_a.margin_top = tf_a.margin_left = tf_a.margin_right = tf_a.margin_bottom = 0
-
-    p = tf_a.paragraphs[0]
-    p.text = "System Architecture Highlights"
-    p.font.size = Pt(11.5)
-    p.font.bold = True
-    p.font.color.rgb = PRIMARY
-
-    notes = [
-        ("FreeRTOS Dual-Core:", "Core 0 handles 16 kHz DMA sampling & DSP FFT; Core 1 handles TFLite Micro inference & MQTT dispatch."),
-        ("Component Trade-Off:", "ESP32-S3 chosen over Raspberry Pi (₹650 vs ₹4,500; 500mW vs 5W) and Arduino Uno (has vector instructions & SRAM)."),
-        ("Sensor Coupling:", "Piezoelectric contact transducer selected over airborne MEMS to eliminate room background chatter."),
-        ("Cost Efficiency:", "Complete edge node built under ₹1,800 vs ₹1,00,000+ proprietary commercial loggers.")
-    ]
-    for h, b in notes:
-        p = tf_a.add_paragraph()
-        p.text = f"• {h} "
-        p.font.size = Pt(9)
-        p.font.bold = True
-        p.font.color.rgb = ACCENT_TEAL
-        p.space_before = Pt(6)
-        r = p.add_run()
-        r.text = b
-        r.font.bold = False
-        r.font.color.rgb = MUTED
+        slide7.shapes.add_picture(architecture_image, Inches(0.66), Inches(1.30), width=Inches(12.0))
 
     # ==========================================
     # SLIDE 8: Results / Initial Implementation (~20% Milestone)
